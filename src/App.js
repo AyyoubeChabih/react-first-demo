@@ -3,6 +3,19 @@ import React, { Component } from 'react';
 import './App.css';
 //import Radium from 'radium';
 import Person from './Person/Person';
+//import styled from 'styled-components';
+
+// const StyledButton = styled.button`
+//   background-color: ${props => (props.alt ? 'red' : '#8f2d56')};
+//   color: white;
+//   padding: 8px;
+//   border: none;
+//   cursor: pointer;
+
+//   &:hover {
+//     background-color: ${props => (props.alt ? 'salmon' : '#693048')};
+//   }
+// `;
 
 class App extends Component {
   state = {
@@ -35,16 +48,16 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: '#8F2D56',
-      color: 'white',
-      padding: '8px',
-      border: 'none',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: '#693048'
-      }
-    };
+    // const style = {
+    //   backgroundColor: '#8F2D56',
+    //   color: 'white',
+    //   padding: '8px',
+    //   border: 'none',
+    //   cursor: 'pointer',
+    //   ':hover': {
+    //     backgroundColor: '#693048'
+    //   }
+    // };
 
     let persons = null;
 
@@ -78,20 +91,33 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon'
-      };
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon'
+      // };
     }
 
     const classes = [];
     if (this.state.persons.length <= 2) classes.push('red');
     if (this.state.persons.length <= 1) classes.push('bold');
 
+    // return (
+    //   <div className="App">
+    //     <h1 className={classes.join(' ')}>This is my first app</h1>
+    //     <StyledButton
+    //       alt={this.state.showPersons}
+    //       onClick={this.togglePersonsHandler}
+    //     >
+    //       Show Persons
+    //     </StyledButton>
+    //     {persons}
+    //   </div>
+    // );
+
     return (
       <div className="App">
         <h1 className={classes.join(' ')}>This is my first app</h1>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <button className="button" onClick={this.togglePersonsHandler}>
           Show Persons
         </button>
         {persons}

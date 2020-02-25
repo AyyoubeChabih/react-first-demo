@@ -1,13 +1,24 @@
 import React from 'react';
-import './Person.css';
+//import './Person.css';
+import styled from 'styled-components';
 //import Radium, { StyleRoot } from 'radium';
 
+const StyledDiv = styled.div`
+  width: 60%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  margin: 16px auto;
+  text-align: center;
+`;
+
 const person = props => {
-  const style = {
-    '@media(min-width: 500px)': {
-      width: '450px'
-    }
-  };
+  // const style = {
+  //   '@media(min-width: 500px)': {
+  //     width: '450px'
+  //   }
+  // };
 
   // return (
   //   <StyleRoot> <data></data>
@@ -15,13 +26,14 @@ const person = props => {
   // );
 
   return (
-    <div className="Person">
+    // <div className="Person">
+    <StyledDiv>
       <p onClick={props.click}>
         I'm a {props.name}, I'm {props.age} years old.
       </p>
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
-    </div>
+    </StyledDiv>
   );
 };
 
